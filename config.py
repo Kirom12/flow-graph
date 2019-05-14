@@ -1,4 +1,0 @@
-DEBUG = True
-SECRET_KEY='dev'
-PERSONAL_TOKEN = ""
-TYPEFORM_API_URL = ""
