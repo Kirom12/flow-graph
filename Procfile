@@ -1,1 +1,1 @@
-web: gunicorn flow-graph:create_app
+web: gunicorn flow-graph:create_app()
