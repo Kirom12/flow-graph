@@ -95,7 +95,7 @@ async def exec_commands(message):
 async def send_form(channel, start_hour=0, end_hour=24):
     time_in_min = random.randint(int(minimal_time_between_test * 60), int(maximal_time_between_test * 60))
     print("send to {} in {} min".format(channel.recipient ,time_in_min))
-    await asyncio.sleep(time_in_min)
+    await asyncio.sleep(time_in_min*60)
     if int(datetime.datetime.now().hour) >= start_hour and int(datetime.datetime.now().hour) < end_hour:
         await channel.send("C'est l'heure de répondre aux questions : {}".format(cfg.FORM_URL))
     await send_form(channel, start_hour, end_hour)
