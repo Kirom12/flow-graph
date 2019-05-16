@@ -1,1 +1,1 @@
-web: gunicorn flow-graph:create_app()
+web: gunicorn -w 4 "flow-graph:create_app()"
