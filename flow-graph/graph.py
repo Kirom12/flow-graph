@@ -82,3 +82,13 @@ def theoretical_flow_calculation(difficulty, skill_level):
             return "apathie"
         if skill_level == 3:
             return "ennui"
+
+@bp.route('/form')
+def flow_form():
+    return render_template('graph/form.html')
+
+@bp.route('/form-validation', methods=['POST'])
+def flow_form_validation():
+    print(request.form['activity'])
+
+    return render_template('graph/form-validation.html')

@@ -1,0 +1,523 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container row">
+    <form class="col s12" action="/form-validation" method="post">
+        <div class="row">
+            <div class="col s12">
+                <label class="form-question" for="activity" >1- Tu fais quoi ? *</label>
+                <input id="activity" type="text" name="activity" class="validate" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >2- Ca rentre dans quel catégorie ? *</p>
+                <p>
+                    <label>
+                        <input name="category" type="radio" value="travail" required/>
+                        <span>Travail</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="category" type="radio" value="hobby"/>
+                        <span>Hobby</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="category" type="radio" value="loisirs"/>
+                        <span>Loisirs</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="category" type="radio" value="vie quotidienne"/>
+                        <span>Vie quotidienne</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >3- Quel est le niveau de défi pour toi ? *</p>
+                <p>
+                    <label>
+                        <input name="difficulty" type="radio" value="1" required/>
+                        <span>Très facile</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="difficulty" type="radio" value="2"/>
+                        <span>Facile</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="difficulty" type="radio" value="3"/>
+                        <span>Moyen</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="difficulty" type="radio" value="4"/>
+                        <span>Difficile</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="difficulty" type="radio" value="5"/>
+                        <span>Très difficile</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >4- Quel est ton niveau de compétence dans cette activité ? *</p>
+                <p>
+                    <label>
+                        <input name="skill" type="radio" value="1" required/>
+                        <span>Très faible</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="skill" type="radio" value="2"/>
+                        <span>Faible</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="skill" type="radio" value="3"/>
+                        <span>Moyen</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="skill" type="radio" value="4"/>
+                        <span>Elevée</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="skill" type="radio" value="5"/>
+                        <span>Très Elevée</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >5- Je me sent suffisamment compétent pour faire face aux exigences de cette situation *</p>
+                <p>
+                    <label>
+                        <input name="skill-feel" type="radio" value="1" required/>
+                        <span>Pas d'accord du tout</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="skill-feel" type="radio" value="2"/>
+                        <span>Pas d'accord</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="skill-feel" type="radio" value="3"/>
+                        <span>Ni d'accord, ni pas d'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="skill-feel" type="radio" value="4"/>
+                        <span>D'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="skill-feel" type="radio" value="5"/>
+                        <span>Fortement d'accord</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >6- Je suis complétement absorbé mentalement par l'activité *</p>
+                <p>
+                    <label>
+                        <input name="immersed" type="radio" value="1" required/>
+                        <span>Pas d'accord du tout</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="immersed" type="radio" value="2"/>
+                        <span>Pas d'accord</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="immersed" type="radio" value="3"/>
+                        <span>Ni d'accord, ni pas d'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="immersed" type="radio" value="4"/>
+                        <span>D'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="immersed" type="radio" value="5"/>
+                        <span>Fortement d'accord</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >7- Les objectifs de l'activité sont clairs *</p>
+                <p>
+                    <label>
+                        <input name="objective" type="radio" value="1" required/>
+                        <span>Pas d'accord du tout</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="objective" type="radio" value="2"/>
+                        <span>Pas d'accord</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="objective" type="radio" value="3"/>
+                        <span>Ni d'accord, ni pas d'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="objective" type="radio" value="4"/>
+                        <span>D'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="objective" type="radio" value="5"/>
+                        <span>Fortement d'accord</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >8- Je contrôle la situation</p>
+                <p>
+                    <label>
+                        <input name="control" type="radio" value="1" required/>
+                        <span>Pas d'accord du tout</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="control" type="radio" value="2"/>
+                        <span>Pas d'accord</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="control" type="radio" value="3"/>
+                        <span>Ni d'accord, ni pas d'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="control" type="radio" value="4"/>
+                        <span>D'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="control" type="radio" value="5"/>
+                        <span>Fortement d'accord</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >9- Je ne me soucie pas de ce que les autres pense a mon propos *</p>
+                <p>
+                    <label>
+                        <input name="other" type="radio" value="1" required/>
+                        <span>Pas d'accord du tout</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="other" type="radio" value="2"/>
+                        <span>Pas d'accord</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="other" type="radio" value="3"/>
+                        <span>Ni d'accord, ni pas d'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="other" type="radio" value="4"/>
+                        <span>D'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="other" type="radio" value="5"/>
+                        <span>Fortement d'accord</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >10- Je ne vois pas le temps passer *</p>
+                <p>
+                    <label>
+                        <input name="time" type="radio" value="1" required/>
+                        <span>Pas d'accord du tout</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="time" type="radio" value="2"/>
+                        <span>Pas d'accord</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="time" type="radio" value="3"/>
+                        <span>Ni d'accord, ni pas d'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="time" type="radio" value="4"/>
+                        <span>D'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="time" type="radio" value="5"/>
+                        <span>Fortement d'accord</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >11- Je sais dire si je réussi ou si j'échoue dans l'activité *</p>
+                <p>
+                    <label>
+                        <input name="fail" type="radio" value="1" required/>
+                        <span>Pas d'accord du tout</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="fail" type="radio" value="2"/>
+                        <span>Pas d'accord</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="fail" type="radio" value="3"/>
+                        <span>Ni d'accord, ni pas d'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="fail" type="radio" value="4"/>
+                        <span>D'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="fail" type="radio" value="5"/>
+                        <span>Fortement d'accord</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >12- Je trouve cette expérience extrêmement enrichissante *</p>
+                <p>
+                    <label>
+                        <input name="learn" type="radio" value="1" required/>
+                        <span>Pas d'accord du tout</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="learn" type="radio" value="2"/>
+                        <span>Pas d'accord</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="learn" type="radio" value="3"/>
+                        <span>Ni d'accord, ni pas d'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="learn" type="radio" value="4"/>
+                        <span>D'accord</span>
+                    </label>
+                </p>
+                 <p>
+                    <label>
+                        <input name="learn" type="radio" value="5"/>
+                        <span>Fortement d'accord</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >13- Je veux faire cette activité *</p>
+                <p>
+                    <label>
+                        <input name="want" type="radio" value="1" required/>
+                        <span>Oui</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="want" type="radio" value="0"/>
+                        <span>Non</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >14- Note ton niveau de bonheur sur dix *</p>
+                <p>
+                    <label>
+                        <input name="happiness" type="radio" value="0" required/>
+                        <span>0</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="happiness" type="radio" value="1"/>
+                        <span>1</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="happiness" type="radio" value="2"/>
+                        <span>2</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="happiness" type="radio" value="3"/>
+                        <span>3</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="happiness" type="radio" value="4"/>
+                        <span>4</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="happiness" type="radio" value="5"/>
+                        <span>5</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="happiness" type="radio" value="6"/>
+                        <span>6</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="happiness" type="radio" value="7"/>
+                        <span>7</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="happiness" type="radio" value="8"/>
+                        <span>8</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="happiness" type="radio" value="9"/>
+                        <span>9</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="happiness" type="radio" value="10"/>
+                        <span>10</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="form-question" >15- Comment est l'ambiance entre les personnes ? *</p>
+                <p>
+                    <label>
+                        <input name="social" type="radio" value="oui" required/>
+                        <span>Bonne</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="social" type="radio" value="neutre"/>
+                        <span>Neutre</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="social" type="radio" value="non"/>
+                        <span>Négative</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <button class="btn waves-effect waves-light" type="submit" name="action">Envoyer
+        </button>
+    </form>
+</div>
+
+{% endblock %}
