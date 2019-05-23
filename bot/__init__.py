@@ -110,4 +110,4 @@ def dump(obj):
            print( "obj.%s = %s" % (attr, getattr(obj, attr)))
 
 if __name__ == '__main__':
-    bot.run(cfg.TOKEN)
+    bot.run(cfg.BOT_TOKEN)

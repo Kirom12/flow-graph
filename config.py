@@ -8,11 +8,11 @@ class Config(object):
     SECRET_KEY = 'secret'
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = ''
+    DATABASE_URL = os.environ.get("DATABASE_URL", default=None)
     DEBUG = False
 
 class DevelopmentConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:default@localhost:5432/flow_chart'
+    DATABASE_URL = os.environ.get("DATABASE_URL", default=None)
     DEBUG = True
 
 class TestingConfig(Config):

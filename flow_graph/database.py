@@ -6,7 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from flask import current_app
 from flask.cli import with_appcontext
 
-engine = create_engine(current_app.config['SQLALCHEMY_DATABASE_URI'], convert_unicode=True)
+engine = create_engine(current_app.config['DATABASE_URL'], convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
