@@ -1,12 +1,13 @@
 
 $(document).ready(function()
 {
-    $('#data_table').DataTable(
+    $('.data_table').DataTable(
     {
         "paging":   false,
         "searching": false,
         "info": false,
-        "responsive": true
+        "responsive": true,
+        "order": [[ 0, "desc" ]]
     })
 
     // Fill color for clean display
@@ -17,7 +18,7 @@ $(document).ready(function()
         // We want only red/green for non forced
         if(i%14 == 11)
         {
-            if (value == 'True')
+            if (value == 'Oui')
             {
                 $(this).addClass("table-bg-5")
             }else

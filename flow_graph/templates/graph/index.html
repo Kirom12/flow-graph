@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% set ns = namespace(last_date=0) %}
+
+{% block content %}
+
+{% for data in datas %}
+    {% if data['date'].split()[0] != ns.last_date %}
+
+        {% if ns.last_date != 0 %}
+            </tbody>
+            </table>
+        {% endif %}
+
+        <h3>{{ data['date'].split()[0] }}</h3>
+        <table class="data_table" style="width:96%;" class="cell-border centered">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Activité</th>
+                    <th>Flow théorique</th>
+                    <th class="indic-header">Indice de flow</th>
+                    <th>Catégorie</th>
+                    <th class="indic-header">Défi</th>
+                    <th class="indic-header">Comp.</th>
+                    <th class="indic-header">Comp. ressenti</th>
+                    <th class="indic-header">Absorption</th>
+                    <th class="indic-header">Objectifs</th>
+                    <th class="indic-header">Controle</th>
+                    <th class="indic-header">Ego</th>
+                    <th class="indic-header">Temps écoulé</th>
+                    <th class="indic-header">Réussite clair</th>
+                    <th class="indic-header">Enrichissant</th>
+                    <th class="indic-header">Non forcé</th>
+                    <th class="indic-header">Bonheur</th>
+                    <th class="indic-header">Ambiance social</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% set ns.last_date = data['date'].split()[0] %}
+    {% endif %}
+
+    <tr>
+        <td>{{ data['date'] }}</td>
+        <td>{{ data['activity'] }}</td>
+        <td class="theoretical_flow" data-value="{{ data['theoretical_flow'] }}">{{ data['theoretical_flow'] }}</td>
+        <td class="indic" data-value="{{ data['flow_indication'] }}">{{ data['flow_indication'] }} / 5</td>
+        <td>{{ data['category'] }}</td>
+        <td class="indic" data-value="{{ data['difficulty'] }}">{{ data['difficulty'] }} / 5</td>
+        <td class="indic" data-value="{{ data['skill'] }}">{{ data['skill'] }} / 5</td>
+        <td class="indic" data-value="{{ data['skill_feel'] }}">{{ data['skill_feel'] }} / 5</td>
+        <td class="indic" data-value="{{ data['immersed'] }}">{{ data['immersed'] }} / 5</td>
+        <td class="indic" data-value="{{ data['objective'] }}">{{ data['objective'] }} / 5</td>
+        <td class="indic" data-value="{{ data['control'] }}">{{ data['control'] }} / 5</td>
+        <td class="indic" data-value="{{ data['other'] }}">{{ data['other'] }} / 5</td>
+        <td class="indic" data-value="{{ data['time'] }}">{{ data['time'] }} / 5</td>
+        <td class="indic" data-value="{{ data['fail'] }}">{{ data['fail'] }} / 5</td>
+        <td class="indic" data-value="{{ data['learn'] }}">{{ data['learn'] }} / 5</td>
+        <td class="indic" data-value="{{ data['want'] }}">{{ data['want'] }}</td>
+        <td class="indic" data-value="{{ data['happiness'] }}">{{ data['happiness'] }} / 10</td>
+        <td class="indic" data-value="{{ data['social'] }}">{{ data['social'] }}</td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% endblock %}
