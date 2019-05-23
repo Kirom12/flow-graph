@@ -2,14 +2,16 @@ import os
 
 from flask import Flask
 
-
 def create_app(environ=None, start_response=None, test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        DATABASE=os.path.join(app.instance_path, 'flow_graph.sqlite'),
-    )
     app.config.from_object('flow_graph.default_settings')
+    app.config.from_object('config.DevelopmentConfig')
+
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+    with app.app_context():
+        from flow_graph.database import db_session
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -24,11 +26,12 @@ def create_app(environ=None, start_response=None, test_config=None):
     except OSError:
         pass
 
-    from . import db
-    db.init_app(app)
-
     from . import graph
     app.register_blueprint(graph.bp)
     app.add_url_rule('/', endpoint='index')
+
+    @app.teardown_appcontext
+    def shutdown_session(exception=None):
+        db_session.remove()
 
     return app

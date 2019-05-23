@@ -18,7 +18,7 @@ $(document).ready(function()
         // We want only red/green for non forced
         if(i%14 == 11)
         {
-            if (value == 'Oui')
+            if (value.toLowerCase() == 'oui')
             {
                 $(this).addClass("table-bg-5")
             }else

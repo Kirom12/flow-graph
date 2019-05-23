@@ -5,14 +5,15 @@
 {% block content %}
 
 {% for data in datas %}
-    {% if data['date'].split()[0] != ns.last_date %}
+
+    {% if data['date'].strftime('%m/%d/%Y') != ns.last_date %}
 
         {% if ns.last_date != 0 %}
             </tbody>
             </table>
         {% endif %}
 
-        <h3>{{ data['date'].split()[0] }}</h3>
+        <h3>{{ data['date'].strftime('%d/%m/%Y') }}</h3>
         <table class="data_table" style="width:96%;" class="cell-border centered">
             <thead>
                 <tr>
@@ -37,15 +38,15 @@
                 </tr>
             </thead>
             <tbody>
-        {% set ns.last_date = data['date'].split()[0] %}
+        {% set ns.last_date = data['date'].strftime('%m/%d/%Y') %}
     {% endif %}
 
     <tr>
-        <td>{{ data['date'] }}</td>
+        <td>{{ data['date'].strftime('%d/%m/%Y à %H:%M') }}</td>
         <td>{{ data['activity'] }}</td>
-        <td class="theoretical_flow" data-value="{{ data['theoretical_flow'] }}">{{ data['theoretical_flow'] }}</td>
-        <td class="indic" data-value="{{ data['flow_indication'] }}">{{ data['flow_indication'] }} / 5</td>
-        <td>{{ data['category'] }}</td>
+        <td class="theoretical_flow" data-value="{{ data.get_theoretical_flow() }}">{{ data.get_theoretical_flow().capitalize() }}</td>
+        <td class="indic" data-value="{{ data.get_flow_indicator() }}">{{ data.get_flow_indicator() }} / 5</td>
+        <td>{{ data['category'].capitalize() }}</td>
         <td class="indic" data-value="{{ data['difficulty'] }}">{{ data['difficulty'] }} / 5</td>
         <td class="indic" data-value="{{ data['skill'] }}">{{ data['skill'] }} / 5</td>
         <td class="indic" data-value="{{ data['skill_feel'] }}">{{ data['skill_feel'] }} / 5</td>
@@ -56,9 +57,9 @@
         <td class="indic" data-value="{{ data['time'] }}">{{ data['time'] }} / 5</td>
         <td class="indic" data-value="{{ data['fail'] }}">{{ data['fail'] }} / 5</td>
         <td class="indic" data-value="{{ data['learn'] }}">{{ data['learn'] }} / 5</td>
-        <td class="indic" data-value="{{ data['want'] }}">{{ data['want'] }}</td>
+        <td class="indic" data-value="{{ data.get_want() }}">{{ data.get_want() }}</td>
         <td class="indic" data-value="{{ data['happiness'] }}">{{ data['happiness'] }} / 10</td>
-        <td class="indic" data-value="{{ data['social'] }}">{{ data['social'] }}</td>
+        <td class="indic" data-value="{{ data['social'] }}">{{ data['social'].capitalize() }}</td>
     </tr>
 {% endfor %}
 </tbody>

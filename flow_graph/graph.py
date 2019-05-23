@@ -5,33 +5,16 @@ from flask import (
 
 import datetime
 import os
-from flow_graph.db import get_db
+from flow_graph.database import db_session
+from flow_graph.models import FlowForm
 
 bp = Blueprint('graph', __name__)
 
 @bp.route('/')
 def index():
-    print(datetime.datetime.now())
+    data = FlowForm.query.all()
 
-    db = get_db()
-
-    data = db.execute(
-        'SELECT * FROM form_data ORDER BY id DESC'
-    ).fetchall()
-
-    format_data = []
-
-    for i, row in enumerate(data):
-        format_data.append({})
-        for key in row.keys():
-            format_data[i][key] = row[key]
-
-        format_data[i]['want'] = 'Oui' if format_data[i]['want'] == 1 else 'Non'
-
-        format_data[i]['theoretical_flow'] = theoretical_flow_calculation(row['difficulty'], row['skill'])
-        format_data[i]['flow_indication'] =  round((row['skill_feel'] + row['immersed'] + row['objective'] + row['control'] + row['other'] + row['time'] + row['fail'] + row['learn'])/8,1)
-
-    return render_template('graph/index.html', datas=format_data)
+    return render_template('graph/index.html', datas=data)
 
 
 def theoretical_flow_calculation(difficulty, skill_level):
@@ -73,27 +56,23 @@ def flow_form_validation():
     print(request.form['activity'])
 
     if request.method == 'POST':
-        db = get_db()
-
-        db.execute(
-            'INSERT INTO form_data (date, activity, category, difficulty, skill, skill_feel, immersed, objective, control, other, time, fail, learn, want, happiness, social) VALUES (datetime("now", "localtime"),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
-            (request.form['activity'],
-             request.form['category'],
-             request.form['difficulty'],
-             request.form['skill'],
-             request.form['skill-feel'],
-             request.form['immersed'],
-             request.form['objective'],
-             request.form['control'],
-             request.form['other'],
-             request.form['time'],
-             request.form['fail'],
-             request.form['learn'],
-             request.form['want'],
-             request.form['happiness'],
-             request.form['social'])
-        )
-
-        db.commit()
+        form = FlowForm(
+            request.form['activity'],
+            request.form['category'],
+            request.form['difficulty'],
+            request.form['skill'],
+            request.form['skill-feel'],
+            request.form['immersed'],
+            request.form['objective'],
+            request.form['control'],
+            request.form['other'],
+            request.form['time'],
+            request.form['fail'],
+            request.form['learn'],
+            request.form['want'],
+            request.form['happiness'],
+            request.form['social'])
+        db_session.add(form)
+        db_session.commit()
 
     return render_template('graph/form-validation.html')
