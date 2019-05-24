@@ -26,14 +26,15 @@
                     <th class="indic-header">Comp.</th>
                     <th class="indic-header">Comp. ressenti</th>
                     <th class="indic-header">Absorption</th>
-                    <th class="indic-header">Objectifs</th>
+                    <th class="indic-header">Obj. clair</th>
                     <th class="indic-header">Controle</th>
-                    <th class="indic-header">Ego</th>
+                    <th class="indic-header">Perte égo</th>
                     <th class="indic-header">Temps écoulé</th>
-                    <th class="indic-header">Réussite clair</th>
+                    <th class="indic-header">Réu. clair</th>
                     <th class="indic-header">Enrichissant</th>
-                    <th class="indic-header">Non forcé</th>
+                    <th class="indic-header">Libre</th>
                     <th class="indic-header">Bonheur</th>
+                    <th class="indic-header">Anxiété</th>
                     <th class="indic-header">Ambiance social</th>
                 </tr>
             </thead>
@@ -58,7 +59,8 @@
         <td class="indic" data-value="{{ data['fail'] }}">{{ data['fail'] }} / 5</td>
         <td class="indic" data-value="{{ data['learn'] }}">{{ data['learn'] }} / 5</td>
         <td class="indic" data-value="{{ data.get_want() }}">{{ data.get_want() }}</td>
-        <td class="indic" data-value="{{ data['happiness'] }}">{{ data['happiness'] }} / 10</td>
+        <td class="indic" data-value="{{ data['happiness'] }}">{{ data['happiness'] }} / 5</td>
+        <td class="indic" data-value="{{ data['anxiety'] }}">{{ data['anxiety'] }} / 5</td>
         <td class="indic" data-value="{{ data['social'] }}">{{ data['social'].capitalize() }}</td>
     </tr>
 {% endfor %}

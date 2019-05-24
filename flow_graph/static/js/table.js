@@ -10,13 +10,22 @@ $(document).ready(function()
         "order": [[ 0, "desc" ]]
     })
 
+    var numberOfData = 15
+
     // Fill color for clean display
     $(".indic").each(function(i)
     {
         let value = $(this).data("value")
 
+        console.log(value)
+
+        if (value == 'None')
+        {
+            $(this).text("-")
+        }
+
         // We want only red/green for non forced
-        if(i%14 == 11)
+        if(i%numberOfData == 11)
         {
             if (value.toLowerCase() == 'oui')
             {
@@ -26,8 +35,13 @@ $(document).ready(function()
                 $(this).addClass("table-bg-1")
             }
         }
+        else if (i%numberOfData == 13)
+        {
+            value = (5 - value) + 1
+            $(this).addClass("table-bg-"+value)
+        }
         // We want color for social ambiance good/none/bad
-        else if (i%14 == 13)
+        else if (i%numberOfData == 14)
         {
             switch(value.toLowerCase())
             {
@@ -45,13 +59,11 @@ $(document).ready(function()
         else
         {
             // Round if this is the first element of each row (flow indicator)
-            if(i%14 == 0)
+            if(i%numberOfData == 0)
             {
                value = Math.round(parseFloat(value))
-            } else if (i%14 == 12)
-            {
-                value = Math.round(parseFloat(value)/2)
             }
+            console.log(value)
             $(this).addClass("table-bg-"+value)
         }
     })

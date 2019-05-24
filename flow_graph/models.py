@@ -20,9 +20,10 @@ class FlowForm(Base):
     learn = Column(Integer, nullable=False)
     want = Column(Integer, nullable=False)
     happiness = Column(Integer, nullable=False)
+    anxiety = Column(Integer)
     social = Column(String(40), nullable=False)
 
-    def __init__(self, activity=None, category=None, difficulty=None, skill=None, skill_feel=None, immersed=None, objective=None, control=None, other=None, time=None, fail=None, learn=None, want=None, happiness=None, social=None):
+    def __init__(self, activity=None, category=None, difficulty=None, skill=None, skill_feel=None, immersed=None, objective=None, control=None, other=None, time=None, fail=None, learn=None, want=None, happiness=None, anxiety=None, social=None):
         self.activity = activity
         self.category = category
         self.difficulty = difficulty
@@ -37,6 +38,7 @@ class FlowForm(Base):
         self.learn = learn
         self.want = want
         self.happiness = happiness
+        self.anxiety = anxiety
         self.social = social
 
     def get_theoretical_flow(self):

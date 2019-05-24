@@ -40,7 +40,7 @@ async def exec_commands(message):
         return
 
     message_split = message.content.split()
-    command = message_split[0]
+    command = message_split[0].lower()
 
     # Start the task : send link to online form
     if command == 'start':
@@ -78,6 +78,10 @@ async def exec_commands(message):
             await message.channel.send("L'envois de formulaire est activé.")
         else:
             await message.channel.send("L'envois de formulaire est désactivé.")
+
+    # Send link to user
+    elif command == 'link':
+        await message.channel.send("Voila tes résultats : {}".format(cfg.GRAPH_URL))
 
     # Display help message
     elif command == 'help':

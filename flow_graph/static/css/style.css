@@ -36,6 +36,10 @@ table.dataTable thead th, table.dataTable thead td {
     padding: 5px 5px;
 }
 
+.table-bg-6{
+    background-color: #4ea3fb;
+}
+
 .table-bg-5{
     background-color: #4ea3fb;
 }
@@ -49,11 +53,15 @@ table.dataTable thead th, table.dataTable thead td {
 }
 
 .table-bg-2{
-    background-color: #d2f678;
+    background-color: #f1b375;
 }
 
 .table-bg-1{
-    background-color: #f1b375;
+    background-color: #F98B6E;
+}
+
+.table-bg-0{
+    background-color: #F98B6E;
 }
 
 .flow-0{
