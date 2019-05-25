@@ -60,7 +60,7 @@ class FlowForm(Base):
             if  self.skill > 3:
                 t_flow = "contrôle"
             if  self.skill < 3:
-                t_flow = "inquetude"
+                t_flow = "inquiétude"
             if  self.skill == 3:
                 t_flow = "neutre"
         if  self.difficulty < 3:

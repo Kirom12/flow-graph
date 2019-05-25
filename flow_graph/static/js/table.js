@@ -93,7 +93,7 @@ $(document).ready(function()
             case 'apathie':
                 canal = 6
                 break
-            case 'inquietude':
+            case 'inquiétude':
                 canal = 7
                 break
             case 'angoisse':
